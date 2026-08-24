@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Ai-chatbot
 =======
 # AI Chatbot — Gemini API + React Frontend
@@ -19,15 +19,8 @@ Built for **GFix Digital**, a software agency assistant persona.
 5. [How it works](#5-how-it-works)
 6. [Features implemented](#6-features-implemented)
 7. [Push this project to GitHub](#7-push-this-project-to-github)
-8. [Deploy the backend on Railway](#8-deploy-the-backend-on-railway)
-9. [Deploy the frontend on Vercel](#9-deploy-the-frontend-on-vercel)
-10. [Troubleshooting](#10-troubleshooting)
-11. [Submission checklist](#11-submission-checklist)
-
----
 
 ## 1. Folder structure
-
 ```
 AI-chatbot/
   backend/
@@ -248,50 +241,7 @@ tracked files — `.gitignore` already excludes them. If either one shows up,
 stop and fix `.gitignore` before pushing.
 
 ---
-
-## 8. Deploy the backend on Railway
-
-1. Go to https://railway.app and sign in with GitHub.
-2. **New Project → Deploy from GitHub repo** → select your `AI-chatbot` repo.
-3. Open the new service's **Settings → Source** and set **Root Directory**
-   to `backend` (so Railway only builds that folder).
-4. Railway auto-detects Python and the `Procfile`
-   (`web: gunicorn app:app --bind 0.0.0.0:$PORT`) — no custom start command
-   needed.
-5. Go to **Variables** and add:
-   ```
-   GEMINI_API_KEY = your_actual_key
-   ```
-   (Don't set `PORT` manually — Railway injects it.)
-6. Go to **Settings → Networking → Generate Domain**. You'll get a public
-   URL, e.g. `https://ai-chatbot-backend-production.up.railway.app`.
-7. Verify it:
-   ```bash
-   curl https://your-railway-url.up.railway.app/health
-   ```
-
----
-
-## 9. Deploy the frontend on Vercel
-
-1. Go to https://vercel.com and sign in with GitHub.
-2. **Add New → Project** → import your `AI-chatbot` repo.
-3. On the configure screen:
-   - **Framework Preset:** Vite
-   - **Root Directory:** `frontend`
-4. Under **Environment Variables**, add:
-   ```
-   VITE_API_BASE_URL = https://your-railway-url.up.railway.app
-   ```
-   (use your actual Railway URL from step 8, no trailing slash)
-5. Click **Deploy**. Vercel builds the app and gives you a live URL, e.g.
-   `https://ai-chatbot-yourname.vercel.app`.
-6. Open that URL and send a message to confirm the full flow works end to
-   end.
-
----
-
-## 10. Troubleshooting
+## . Troubleshooting
 
 | Problem | Fix |
 |---|---|
@@ -305,13 +255,3 @@ stop and fix `.gitignore` before pushing.
 | Vercel deploy succeeds but chat fails | Double check `VITE_API_BASE_URL` on Vercel points to the live Railway URL (not `localhost`), and that the Railway backend is actually running |
 
 ---
-
-## 11. Submission checklist
-
-- [ ] Pushed to a GitHub repo named `AI-chatbot`
-- [ ] Confirmed `backend/.env` and `frontend/.env` are **not** in the repo
-- [ ] Backend deployed on Railway, `/health` returns `{"status":"ok"}`
-- [ ] Frontend deployed on Vercel and successfully chats with the live backend
-- [ ] Screen recording with at least 3 back-and-forth messages
-- [ ] Posted the GitHub link + live links + recording as a comment
->>>>>>> 0ff548d (Initial commit)
